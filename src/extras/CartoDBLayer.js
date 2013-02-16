@@ -37,7 +37,6 @@
         _cartodbLayer.query = function(queryString /*string*/) {
 
             var _url = this.url.concat(queryString),
-            features = [],
             self = this;
 
             request(_url).then(function (data) {
@@ -63,7 +62,6 @@
                         //set symbol for graphic and set info template
                         graphic.setSymbol(symbols.polygonSymbol());
                         graphic.setInfoTemplate(new esri.InfoTemplate("Attributes", "${*}"));
-                        features.push(graphic);
                         self.add(graphic);
                     }
 
