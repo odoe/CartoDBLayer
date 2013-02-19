@@ -10,8 +10,9 @@
         'dojo/_base/connect',
         'dojo/Evented',
         'helpers/popuphelper',
+        'helpers/symbolHelper',
         'extras/CartoDBLayer'
-        ], function(declare, connect, Evented, popup, CartoDBLayer) {
+        ], function(declare, connect, Evented, popup, symbols, CartoDBLayer) {
 
             var _mapView = {};
             _mapView.map = null;
@@ -38,7 +39,10 @@
 
                 // params are very simple so far
                 params = {
-                    user: 'odoe'
+                    user: 'odoe',
+                    symbolDictionary: {
+                        polygon: symbols.polygonSymbol()
+                    }
                 };
 
                 cartodbLayer = new CartoDBLayer(params);
