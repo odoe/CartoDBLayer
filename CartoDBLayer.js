@@ -1,6 +1,5 @@
 define([
   'dojo/_base/declare',
-  'dojo/Evented',
   'dojo/request',
 
   'esri/InfoTemplate',
@@ -11,7 +10,6 @@ define([
   'dojo/json'
 ], function(
   declare,
-  Evented,
   request,
   InfoTemplate, GraphicsLayer, Graphic,
   webMercatorUtils,
@@ -51,8 +49,8 @@ define([
 
     request(_url).then(function (data) {
       var geojson = dojoJSON.parse(data);
-      //var esriJson = jsonConverters.geoJsonConverter().toEsri(geojson);
-
+      // assumes global Terraformer with ArcGIS Parser loaded
+      // http://terraformer.io/
       var esriJson = Terraformer.ArcGIS.convert(geojson);
 
       esriJson.map(function(x) {
@@ -92,7 +90,7 @@ define([
 
   };
 
-  var CartoDBLayer = declare([GraphicsLayer, Evented], _cartodbLayer);
+  var CartoDBLayer = declare([GraphicsLayer], _cartodbLayer);
 
   return CartoDBLayer;
 
