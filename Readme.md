@@ -7,3 +7,5 @@ This Layer is dependent on [Terraformer](http://terraformer.io/arcgis-parser/)
 to convert the GeoJSON to EsriJSON features.
 
 You can see a sample of the CartoDBLayer in action [here](http://www.odoe.net/apps/arccartodb/sample/).
+
+[Blog post on CartoDBLayer](http://odoe.net/blog/cartodb-with-arcgis-api-for-javascript).
